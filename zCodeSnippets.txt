@@ -1,0 +1,7 @@
+sequelize model:create --name disease --attributes name:string,description:text,isTerminal:boolean,severity:integer,transmission:string
+
+sequelize model:create --name symptom --attributes name:string,description:text,affectedSystems:string,severity:integer
+
+sequelize model:create --name disease_symptom --attributes diseaseId:integer,symptomId:integer
+
+sequelize db:migrate

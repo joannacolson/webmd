@@ -1,0 +1,13 @@
+<div class="text-center">
+	<h1>Which one of these do you have?</h1>
+	<!-- <h2>To do: List of symptoms</h2> -->
+
+	<% symptoms.forEach(function(s) { %>
+		<div>
+			<a href="/symptoms/<%= s.id %>">
+			<%= s.name %>
+			</a>
+		</div>
+
+	<% }); %>
+</div>
