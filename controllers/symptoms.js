@@ -1,12 +1,11 @@
 var express = require("express");
+var async = require("async");
 var router = express.Router();
 var db = require("../models");
 
 router.get("/", function(req, res) {
     db.symptom.findAll().then(function(symptoms) {
-
         res.render("symptoms/all", { symptoms: symptoms });
-
     });
 });
 
@@ -25,6 +24,15 @@ router.post("/", function(req, res) {
 
 router.get("/add", function(req, res) {
     res.render("symptoms/add");
+});
+
+router.get("/:id", function(req, res) {
+    db.symptom.findOne({
+        where: { id: req.params.id },
+        include: [db.disease]
+    }).then(function(symptom) {
+        res.render("symptoms/show", { symptom: symptom });
+    });
 });
 
 module.exports = router;

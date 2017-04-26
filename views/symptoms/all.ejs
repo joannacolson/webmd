@@ -1,11 +1,14 @@
 <div class="text-center">
+	<img src="https://medlineplus.gov/magazine/issues/winter14/images/brain_symptoms.jpg" alt="What are the symptoms?">
 	<h1>Which one of these do you have?</h1>
 	<!-- <h2>To do: List of symptoms</h2> -->
 
 	<% symptoms.forEach(function(s) { %>
 		<div>
 			<a href="/symptoms/<%= s.id %>">
-			<%= s.name %>
+				<h3 class="text-danger">
+					<%= s.name %>
+					</h3>
 			</a>
 		</div>
 
